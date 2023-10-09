@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Traversing the DOM</title>
+    <script src="../../lib/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+//            $("div.father").parent().addClass('red-color');
+//            $("div.son").parents().addClass('blue-color');
+//            $("div.son").parentsUntil("div.great-grandfather").addClass('red-color');
+//            $("div.daughter").closest("div").addClass('green-color');
+//            $("div.mother").closest("div").addClass('green-color');
+//
+//            $(".father").children().addClass('green-color');
+//            $(".great-grandfather").next().addClass('red-color');
+//            $(".great-grandmother").prev().addClass('blue-color');
+//
+//            $(".great-grandfather").nextAll().addClass('red-color');
+//            $(".great-grandfather").nextAll().first().addClass('red-color');
+//            $(".great-grandfather").nextAll().last().addClass('blue-color');
+//
+//            $(".great-grandaunt").prevAll().addClass('blue-color');
+//            $(".great-grandaunt").prevAll().first().addClass('blue-color');
+//            $(".great-grandaunt").prevAll().last().addClass('red-color');
+//
+            $(".daughter").siblings().addClass('green-color');
+        });
+    </script>
+    <style>
+        .indent {
+            padding: 2px 8px;
+            margin: 2px 8px;
+        }
+        .red-color {
+            color: #de1515;
+        }
+        .blue-color {
+            color: cornflowerblue;
+        }
+        .green-color {
+            color: forestgreen;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+<div class="indent great-grandfather">
+    Great-grandfather
+
+    <div class="indent grandfather">
+        Grandfather
+
+        <div class="indent father">
+            Father
+
+            <div class="indent son">
+                Son 1
+            </div>
+            <div class="indent son">
+                Son 2
+            </div>
+            <div class="indent son">
+                Son 3
+            </div>
+        </div>
+    </div>
+</div>
+<div class="indent great-grandmother">
+    Great-grandmother
+
+    <div class="indent grandmother">
+        Grandmother
+
+        <div class="indent mother">
+            Mother
+
+            <div class="indent daughter">
+                Daughter 1
+            </div>
+            <div class="indent daughter">
+                Daughter 2
+            </div>
+            <div class="indent daughter">
+                Daughter 3
+            </div>
+        </div>
+    </div>
+</div>
+<div class="indent great-granduncle">
+    Great-granduncle
+</div>
+<div class="indent great-grandaunt">
+    Great-grandaunt
+</div>
+</body>
+</html>

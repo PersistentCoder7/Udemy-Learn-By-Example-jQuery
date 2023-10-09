@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chaining And Queueing</title>
+    <script src="../../lib/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.start').click(function() {
+                $('.noqueue')
+                    .slideUp(2000)
+                    .fadeIn(2000)
+                    .hide(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000)
+                    .addClass('highlight')
+                    .hide(2000)
+                    .fadeIn(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000);
+
+                $('.queue')
+                    .slideUp(2000)
+                    .fadeIn(2000)
+                    .hide(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000)
+                    .queue(function() {
+                       $(this).addClass('highlight');
+                       $(this).dequeue();
+                     })
+                    .hide(2000)
+                    .fadeIn(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000);
+
+                $('.queueagain')
+                    .slideUp(2000)
+                    .fadeIn(2000)
+                    .hide(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000)
+                    .queue(function(next) {
+                       $(this).addClass('highlight');
+                       next();
+                     })
+                    .hide(2000)
+                    .fadeIn(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000);
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 200px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgoldenrodyellow;
+            color: darkorange;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkorange;
+            color: orangered;
+        }
+
+        .noqueue {
+            left: 100px;
+            top: 100px;
+        }
+
+        .queue {
+            left: 100px;
+            top: 200px;
+        }
+
+        .queueagain {
+            left: 100px;
+            top: 300px;
+        }
+
+        .text {
+            font-family: sans-serif;
+            font-size: 44px;
+            color: #de1515;
+            opacity: 1.0;
+            margin-top: 18px;
+            position: absolute;
+        }
+        .highlight {
+            color: deepskyblue;
+        }
+
+    </style>
+</head>
+<body>
+<div class="start link">
+    Start
+</div>
+<div class="text noqueue">
+    Loonycorn
+</div>
+<div class="text queue">
+    Loonycorn
+</div>
+<div class="text queueagain">
+    Loonycorn
+</div>
+<br>
+</body>
+</html>

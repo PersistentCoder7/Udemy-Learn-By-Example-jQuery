@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Namespacing Events</title>
+    <script src="../../lib/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#clickMe').on('click.importantNamespace', function() {
+                console.log('I am a SUPER IMPORTANT event handler');
+            });
+
+            $('#clickMe').on('click.temporaryNamespace', function() {
+                console.log('I am a temporary click event handler, I can be removed anytime');
+            });
+            $('#clickMe').on('mouseenter.temporaryNamespace', function() {
+                console.log('I am a temporary mouseenter event handler');
+            });
+            $('#clickMe').on('mouseleave.temporaryNamespace', function() {
+                console.log('I am a temporary mouseleave event handler');
+            });
+
+            $('#removeClick').on('click', function() {
+                console.log('Temporary click events turned off');
+                $('#clickMe').off('click.temporaryNamespace');
+            });
+
+            $('#removeAll').on('click', function() {
+                console.log('All temporary events turned off');
+                $('#clickMe').off('.temporaryNamespace');
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="clickMe">Click me, I have namespaced events</button>
+<br>
+<br>
+<button id="removeClick">Remove temporary click event</button>
+<br>
+<br>
+<button id="removeAll">Remove all temporary events</button>
+</body>
+</html>

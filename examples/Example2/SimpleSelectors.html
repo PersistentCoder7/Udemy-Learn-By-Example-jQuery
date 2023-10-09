@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple Selectors</title>
+    <script src="../../lib/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('h3').addClass('red-color');
+
+            $('#firstpara').addClass('blue-color');
+
+            $('.para-class').addClass('green-color');
+        });
+    </script>
+    <style>
+        .red-color {
+            color: #de1515;
+        }
+        .blue-color {
+            color: cornflowerblue;
+        }
+        .green-color {
+            color: seagreen;
+        }
+    </style>
+</head>
+<body>
+    <h3>
+        Trump suddenly sounds a lot like Jeb Bush and
+        Marco Rubio on immigration
+    </h3>
+    <p id="firstpara">
+        If it sticks, his shift away from a pledge to deport 11 million
+        illegal immigrants marks a dramatic turnabout for a candidate who
+        repeatedly attacked primary rivals as weak and spineless on immigration.
+    </p>
+    <h3>
+        A new class of galaxy has been discovered, and
+        it’s almost all dark matter
+    </h3>
+    <p class="para-class">
+        According to one of the astronomers who found it, Dragonfly 44 is as big
+        as the Milky Way, and its existence exposes how little scientists know
+        about how galaxy formation works.
+    </p>
+</body>
+</html>
